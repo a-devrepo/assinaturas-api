@@ -93,7 +93,7 @@ jobs:
           environment_name: Api-produtos-aws-env
           region: us-east-2
           deployment_package: api-produtos-aws.jar
-          version_label: ${{ github.sha }}
+          version_label: ${{ github.sha }}-${{ github.run_number }}
 
       # Remove arquivos temporários gerados durante o deploy
       - name: Limpar arquivos temporários
