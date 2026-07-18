@@ -81,7 +81,7 @@ jobs:
         run: |
           JAR_FILE=$(ls *.jar)
           echo "Arquivo JAR baixado: $JAR_FILE"
-          mv "$JAR_FILE" api-produtos-aws.jar
+          mv "$JAR_FILE" api-assinaturas-aws.jar
 
       # Faz o deploy da aplicação no AWS Elastic Beanstalk
       - name: Fazer deploy no Elastic Beanstalk
@@ -89,10 +89,10 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: api-produtos-aws
-          environment_name: Api-produtos-aws-env
+          application_name: api-assinaturas-aws
+          environment_name: Api-assinaturas-aws-env
           region: us-east-2
-          deployment_package: api-produtos-aws.jar
+          deployment_package: api-assinaturas-aws.jar
           version_label: ${{ github.sha }}-${{ github.run_number }}
 
       # Remove arquivos temporários gerados durante o deploy
